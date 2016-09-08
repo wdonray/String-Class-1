@@ -20,6 +20,8 @@ int stringClass::getLength()
 		}
 		i++;
 	}
+	
 	int FirstWordLength=i;
+	
 	return FirstWordLength;
 }
