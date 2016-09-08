@@ -5,13 +5,12 @@ class stringClass
 {
 public:
 	stringClass() {};
-	stringClass(const char * &first, const char * &second);
+	stringClass(char *first);
 	int getLength();
 	bool accessIndex();
-	bool compareStrings(int);
-	bool append();
+	bool compareStrings(stringClass,stringClass);
+	bool append(stringClass, stringClass);
 private:
-	const char * m_FirstWord = { "Bubble" };
-	const char * m_SecondWord = { "Noodle" };
+	const char * m_Word;
 	
 };

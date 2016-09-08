@@ -3,10 +3,9 @@
 
 
 
-stringClass::stringClass(const char * &first, const char * &second)
+stringClass::stringClass(char *first)
 {
-	m_FirstWord = first;
-	m_SecondWord = second;
+	m_Word = first;
 }
 
 int stringClass::getLength()
@@ -14,15 +13,14 @@ int stringClass::getLength()
 	int i;
 	for (i = 0;;)
 	{
-		if (m_FirstWord[i] == '\0')
+		if (m_Word[i] == '\0')
 		{
 			break;
 		}
 		i++;
 	}
-	int FirstWordLength = i;
-	return FirstWordLength;
-	return ;
+	int WordLength = i;
+	return WordLength;
 }
 
 bool stringClass::accessIndex()
@@ -30,16 +28,23 @@ bool stringClass::accessIndex()
 	std::cout << "What index would you like to access?\n";
 	int index;
 	std::cin >> index;
-	std::cout << m_FirstWord[index] << std::endl;;
+	while (!std::cin)
+	{
+		std::cout << "Not a valid index" << std::endl;
+		std::cin.clear();
+		std::cin.ignore();
+		std::cin >> index;
+	}
+	std::cout << m_Word[index] << std::endl;;
 	return true;
 }
 
-bool stringClass::compareStrings(int size)
+bool stringClass::compareStrings(stringClass first,stringClass second)
 {
 	bool equalStrings;
-	for (int i = 0; i < size; i++)
+	for (int i = 0;; i++)
 	{
-		equalStrings = (m_FirstWord[i] == m_SecondWord[i]) ? true : false;
+		equalStrings = (first.m_Word[i] == second.m_Word[i]) ? true : false;
 		if (equalStrings == false)
 		{
 			break;
@@ -48,8 +53,29 @@ bool stringClass::compareStrings(int size)
 	return equalStrings;
 }
 
-bool stringClass::append()
+
+bool stringClass::append(stringClass first, stringClass second)
 {
-	const char * c = strcat(m_FirstWord, m_SecondWord);
+	char appendedString[40];
+	int i;
+	for (i = 0;;)
+	{
+		for (int j = 0; first.m_Word[j] != '\0'; j++)
+		{
+			appendedString[i] = first.m_Word[j];
+			i++;
+		}
+		for (int k = 0; second.m_Word[k] != '\0'; k++)
+		{
+			appendedString[i] = second.m_Word[k];
+			i++;
+		}
+		break;
+	}
+	appendedString[i] = '\0';
+	for (int index = 0;appendedString[index]!='\0';index ++)
+	{
+		std::cout << appendedString[index];
+	}
 	return false;
 }
