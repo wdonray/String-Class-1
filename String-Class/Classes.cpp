@@ -5,8 +5,8 @@
 
 stringClass::stringClass(const char * &first, const char * &second)
 {
-	first = m_FirstWord;
-	second = m_SecondWord;
+	m_FirstWord = first;
+	m_SecondWord = second;
 }
 
 int stringClass::getLength()
