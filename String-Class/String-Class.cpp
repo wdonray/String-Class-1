@@ -9,10 +9,12 @@ int main()
 	int secondLength = secondTest.getLength();
 	std::cout << firstLength << std::endl;
 	std::cout << secondLength << std::endl;
-	//firstTest.accessIndex();
-	int equalStrings = firstTest.compareStrings(firstTest,secondTest);
-	std::cout << equalStrings << std::endl;
+	firstTest.accessIndex();
+	firstTest.compareStrings(firstTest,secondTest);
 	firstTest.append(firstTest,secondTest);
+	firstTest.prepend(firstTest, secondTest);
+	firstTest.lowercase(firstTest, secondTest, firstLength, secondLength);
+	firstTest.uppercase(firstTest, secondTest, firstLength, secondLength);
 	system("pause");
 	return 0;
 }
