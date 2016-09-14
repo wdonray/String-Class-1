@@ -1,19 +1,23 @@
 #pragma once
 
 
-class stringClass
+class MyString
 {
 public:
-	stringClass() {};
-	stringClass(char *first);
+	MyString() {};
+	MyString(char *first);
 	int getLength();
-	bool accessIndex();
-	bool compareStrings(stringClass,stringClass);
-	bool append(stringClass, stringClass);
-	bool prepend(stringClass, stringClass);
-	bool lowercase(stringClass, stringClass,int,int);
-	bool uppercase(stringClass, stringClass, int, int);
+	char accessIndex(int);
+	bool compareStrings(MyString);
+	bool append(MyString);
+	bool prepend(MyString);
+	bool lowercase();
+	bool uppercase();
+	bool subString();
+	bool subStringAtIndex(int);
+	void replaceSubString();
+	char *getString();
 private:
-	const char * m_Word;
+	char m_Data[255];
 	
 };

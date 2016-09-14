@@ -3,17 +3,22 @@
 
 
 
-stringClass::stringClass(char *first)
+MyString::MyString(char *first)
 {
-	m_Word = first;
+	int i;
+	for (i = 0; first[i] != '\0'; i++)
+	{
+		m_Data[i] = first[i];
+	}
+	m_Data[i] = '\0';
 }
 
-int stringClass::getLength()
+int MyString::getLength()
 {
 	int i;
 	for (i = 0;;)
 	{
-		if (m_Word[i] == '\0')
+		if (m_Data[i] == '\0')
 		{
 			break;
 		}
@@ -23,28 +28,18 @@ int stringClass::getLength()
 	return WordLength;
 }
 
-bool stringClass::accessIndex()
+char MyString::accessIndex(int index)
 {
-	std::cout << "What index would you like to access?\n";
-	int index;
-	std::cin >> index;
-	while (!std::cin)
-	{
-		std::cout << "Not a valid index" << std::endl;
-		std::cin.clear();
-		std::cin.ignore();
-		std::cin >> index;
-	}
-	std::cout << m_Word[index] << std::endl;;
-	return true;
+	std::cout << m_Data[index] << std::endl;
+	return m_Data[index];
 }
 
-bool stringClass::compareStrings(stringClass first,stringClass second)
+bool MyString::compareStrings(MyString second)
 {
 	bool equalStrings;
 	for (int i = 0;; i++)
 	{
-		equalStrings = (first.m_Word[i] == second.m_Word[i]) ? true : false;
+		equalStrings = (m_Data[i] == second.m_Data[i]) ? true : false;
 		if (equalStrings == false)
 		{
 			std::cout << "Not equal" << std::endl;
@@ -59,124 +54,165 @@ bool stringClass::compareStrings(stringClass first,stringClass second)
 }
 
 
-bool stringClass::append(stringClass first, stringClass second)
+bool MyString::append(MyString second)
 {
-	char appendedString[40];
+	int oldLength = getLength();
 	int i;
-	for (i = 0;;)
+	for (i = 0; second.m_Data[i] != '\0'; i++)
 	{
-		for (int j = 0; first.m_Word[j] != '\0'; j++)
-		{
-			appendedString[i] = first.m_Word[j];
-			i++;
-		}
-		for (int k = 0; second.m_Word[k] != '\0'; k++)
-		{
-			appendedString[i] = second.m_Word[k];
-			i++;
-		}
-		break;
+		m_Data[i + oldLength] = second.m_Data[i];
 	}
-	appendedString[i] = '\0';
-	for (int index = 0;appendedString[index]!='\0';index ++)
-	{
-		std::cout << appendedString[index];
-	}
-	std::cout << std::endl;
+	m_Data[i+oldLength] = '\0';
 	return false;
 }
 
-bool stringClass::prepend(stringClass first, stringClass second)
+bool MyString::prepend(MyString second)
 {
-	char prependString[40];
-	int i;
-	for (i = 0;;)
+	char copy[255];
+	int oldLength = second.getLength();
+	int original = getLength();
+	for (int i = 0; i < original; i++)
 	{
-		for (int j = 0; second.m_Word[j] != '\0'; j++)
-		{
-			prependString[i] = second.m_Word[j];
-			i++;
-		}
-		for (int k = 0; first.m_Word[k] != '\0'; k++)
-		{
-			prependString[i] = first.m_Word[k];
-			i++;
-		}
-		break;
+		copy[i] = m_Data[i];
 	}
-	prependString[i] = '\0';
-	for (int index = 0; prependString[index] != '\0'; index++)
+	for (int i = 0;i<original; i++)
 	{
-		std::cout << prependString[index];
+		m_Data[i + oldLength] = copy[i];
 	}
-	std::cout << std::endl;
+	for (int i = 0; i < oldLength; i++)
+	{
+		m_Data[i] = second.m_Data[i];
+	}
 	return false;
 }
 
-bool stringClass::lowercase(stringClass first, stringClass second,int firstSize,int secondSize)
+bool MyString::lowercase()
 {
-	char *lowercasefirst = new char[firstSize];
-	for (int i = 0; i < firstSize; i++)
+	char *lowerCase = new char[getLength()];
+	for (int i = 0; i < getLength(); i++)
 	{
-		if ((int)first.m_Word[i]>64 && (int)first.m_Word[i] < 91)
+		if ((int)m_Data[i] > 64 && (int)m_Data[i] < 91)
 		{
-			(char)lowercasefirst[i] = (int)first.m_Word[i]+32;
+			(char)lowerCase[i] = (int)m_Data[i] + 32;
 		}
 		else
 		{
-			lowercasefirst[i] = first.m_Word[i];
+			lowerCase[i] = m_Data[i];
 		}
-		std::cout << lowercasefirst[i];
 	}
-	std::cout << std::endl;
-
-	char *lowercasesecond = new char[secondSize];
-	for (int i = 0; i < secondSize; i++)
-	{
-		if ((int)second.m_Word[i]>64 && (int)second.m_Word[i] < 91)
-		{
-			(char)lowercasesecond[i] = (int)second.m_Word[i] + 32;
-		}
-		else
-		{
-			lowercasesecond[i] = second.m_Word[i];
-		}
-		std::cout << lowercasesecond[i];
-	}
-	std::cout << std::endl;
 	return false;
 }
 
-bool stringClass::uppercase(stringClass first, stringClass second, int firstSize, int secondSize)
+bool MyString::uppercase()
 {
-	char *uppercasefirst = new char[firstSize];
-	for (int i = 0; i < firstSize; i++)
+	char *uppercasefirst = new char[getLength()];
+	for (int i = 0; i < getLength(); i++)
 	{
-		if ((int)first.m_Word[i]>96 && (int)first.m_Word[i] < 123)
+		if ((int)m_Data[i] > 96 && (int)m_Data[i] < 123)
 		{
-			(char)uppercasefirst[i] = (int)first.m_Word[i] - 32;
+			(char)uppercasefirst[i] = (int)m_Data[i] - 32;
 		}
 		else
 		{
-			uppercasefirst[i] = first.m_Word[i];
+			uppercasefirst[i] = m_Data[i];
 		}
-		std::cout << uppercasefirst[i];
 	}
-	std::cout << std::endl;
-
-	char *uppercasesecond = new char[secondSize];
-	for (int i = 0; i < secondSize; i++)
-	{
-		if ((int)second.m_Word[i]>96 && (int)second.m_Word[i] < 123)
-		{
-			(char)uppercasesecond[i] = (int)second.m_Word[i] - 32;
-		}
-		else
-		{
-			uppercasesecond[i] = second.m_Word[i];
-		}
-		std::cout << uppercasesecond[i];
-	}
-	std::cout << std::endl;
 	return false;
+}
+
+bool MyString::subString()
+{
+	bool isSubStringFound;
+	const char * sub = { "bb" };
+	int x = 0;
+	for (int i = 0; i < getLength(); i++)
+	{
+		if (m_Data[i] == sub[x])
+		{
+			x++;
+			if (x == 2)
+			{
+				isSubStringFound = true;
+				break;
+			}
+
+		}
+		else
+		{
+			isSubStringFound = false;
+		}
+	}
+	std::cout << isSubStringFound << std::endl;;
+	return isSubStringFound;
+}
+
+bool MyString::subStringAtIndex(int index)
+{
+	bool isSubStringFoundAtIndex = false;
+	const char * sub = { "bb" };
+	int x = 0;
+	for (int i = 0 + index; i < getLength(); i++)
+	{
+		if (m_Data[i] == sub[x])
+		{
+			x++;
+			if (x == 2)
+			{
+				isSubStringFoundAtIndex = true;
+				break;
+			}
+		}
+		else
+		{
+			isSubStringFoundAtIndex = false;
+		}
+	}
+	std::cout << isSubStringFoundAtIndex << std::endl;
+	return isSubStringFoundAtIndex;
+}
+
+void MyString::replaceSubString()
+{
+	bool isSubStringFound;
+	const char * sub = { "bb" };
+	const char * subReplace = { "cc" };
+	int x = 0;
+	for (int i = 0; i < getLength(); i++)
+	{
+		if (m_Data[i] == sub[x])
+		{
+			x++;
+			if (x == 2)
+			{
+				isSubStringFound = true;
+				break;
+			}
+		}
+		else
+		{
+			isSubStringFound = false;
+		}
+	}
+	x = 0;
+	char *replacedString = new char[getLength()];
+	for (int i = 0; i < getLength(); i++)
+	{
+
+		if (m_Data[i] == sub[x])
+		{
+			replacedString[i] = subReplace[x];
+			x++;
+		}
+		else
+		{
+			replacedString[i] = m_Data[i];
+		}
+	}
+}
+
+char *MyString::getString()
+{
+	char word[255];
+	std::cin.getline(word, 255);
+	return word;
 }
