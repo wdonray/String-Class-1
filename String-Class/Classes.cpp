@@ -12,27 +12,30 @@ MyString::MyString(char *first)//constructor definition to set the value of the 
 	}
 	m_Data[i] = '\0';
 }
-
-int MyString::getLength()//gets the length of the string by counting until it reaches the null character
+//function getLength
+//takes no arguments
+//gets the length of the string by counting until it reaches the null character
+int MyString::getLength()
 {
 	int i = 0;
-	//for (i = 0; m_Data[i] != '\0'; i++)//loops through the string until the null character is found
-	//{
-	//}
 	while (m_Data[i] != '\0')
 	{
 		i++;
 	}
 	return i;//returns the value the loop stops at which is the length of the string
 }
-
-char MyString::accessIndex(int index)//takes in an integer which is used as the index to return a character at that index
+//function accessIndex
+//takes one argument of type int
+//takes in an integer which is used as the index to return a character at that index
+char MyString::accessIndex(int index)
 {
 	std::cout << m_Data[index] << std::endl;
 	return m_Data[index];
 }
-
-bool MyString::compareStrings(MyString second)//compares each character in the strings to check for equality
+//funtion compareStrings
+//takes one argument of type MyString
+//compares each character in the strings to check for equality
+bool MyString::compareStrings(MyString second)
 {
 	bool equalStrings;
 	for (int i = 0;; i++)//loops through the characters in the string comparing it to the second string
@@ -66,8 +69,10 @@ void MyString::append(MyString second) // appends the second string on the end o
 	}
 	std::cout << std::endl;
 }
-
-void MyString::prepend(MyString second) //prepends the second string on the beginning of the first string which now has the second string appended on the front of it
+//function prepend
+//takes one argument of type MyString
+//prepends the second string on the beginning of the first string which now has the second string appended on the front of it
+void MyString::prepend(MyString second) 
 {
 	char copy[255];//array of characters ment to copy the current string
 	int oldLength = second.getLength();//get current length of second string
@@ -92,8 +97,10 @@ void MyString::prepend(MyString second) //prepends the second string on the begi
 	}
 	std::cout << std::endl;
 }
-
-void MyString::lowercase() // makes all letters in the string lowercase
+//function lowercase
+//takes no arguments
+// makes all letters in the string lowercase
+void MyString::lowercase() 
 {
 	for (int i = 0; i < getLength(); i++)
 	{
@@ -108,8 +115,10 @@ void MyString::lowercase() // makes all letters in the string lowercase
 	}
 	std::cout << std::endl;
 }
-
-void MyString::uppercase()//makes all letters in the string capitalize
+//function uppercase
+// no arguments
+//makes all letters in the string uppercase
+void MyString::uppercase()
 {
 	for (int i = 0; i < getLength(); i++)
 	{
@@ -124,8 +133,10 @@ void MyString::uppercase()//makes all letters in the string capitalize
 	}
 	std::cout << std::endl;
 }
-
-bool MyString::subString()//searches the string for a sequence of characters
+//function subString
+//takes no arguments
+//searches the string for a sequence of characters
+bool MyString::subString()
 {
 	bool isSubStringFound=false;
 	const char * sub = { "bb" };//characters that are being searched for
@@ -151,8 +162,10 @@ bool MyString::subString()//searches the string for a sequence of characters
 	std::cout << isSubStringFound << std::endl;;
 	return isSubStringFound;
 }
-
-bool MyString::subStringAtIndex(int index)//searches the string for a sequence of characters starting at a certain index
+//function subStringAtIndex
+//takes one argument of type int
+//searches the string for a sequence of characters starting at a certain index
+bool MyString::subStringAtIndex(int index)
 {
 	bool isSubStringFoundAtIndex = false;
 	const char * sub = { "bb" };
@@ -177,8 +190,10 @@ bool MyString::subStringAtIndex(int index)//searches the string for a sequence o
 	std::cout << isSubStringFoundAtIndex << std::endl;
 	return isSubStringFoundAtIndex;
 }
-
-void MyString::replaceSubString()//searches the string for a sequence of characters and if found replaces them with another sequence of characters
+//function replaceSubString
+//takes no arguments
+//searches the string for a sequence of characters and if found replaces them with another sequence of characters
+void MyString::replaceSubString()
 {
 	bool isSubStringFound;
 	const char * sub = { "bb" };
@@ -221,8 +236,10 @@ void MyString::replaceSubString()//searches the string for a sequence of charact
 	}
 	std::cout << std::endl;
 }
-
-char *MyString::getString()//gets a string from user input
+//functinon getString
+//takes no arguments
+//gets the string from the users input
+char *MyString::getString()
 {
 	char word[255];
 	std::cin.getline(word, 255);
