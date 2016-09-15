@@ -17,6 +17,7 @@ public:
 	bool subStringAtIndex(int);
 	void replaceSubString();
 	char *getString();
+	const char *constantCStyleString();
 private:
 	char m_Data[255];
 };

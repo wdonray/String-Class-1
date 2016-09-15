@@ -245,3 +245,9 @@ char *MyString::getString()
 	std::cin.getline(word, 255);
 	return word;
 }
+
+const char * MyString::constantCStyleString()
+{
+	const char * constanceCString = m_Data;
+	return constanceCString;
+}

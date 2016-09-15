@@ -11,6 +11,7 @@ int main()
 	std::cout << firstLength << std::endl;
 	std::cout << secondLength << std::endl;
 	int index = 3;
+	firstTest.constantCStyleString();
 	firstTest.accessIndex(index);
 	firstTest.compareStrings(secondTest);
 	firstTest.subString();
