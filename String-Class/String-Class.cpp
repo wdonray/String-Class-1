@@ -13,13 +13,13 @@ int main()
 	int index = 3;
 	firstTest.accessIndex(index);
 	firstTest.compareStrings(secondTest);
-	firstTest.append(secondTest);
-	firstTest.prepend(secondTest);
-	firstTest.lowercase();
-	firstTest.uppercase();
 	firstTest.subString();
 	firstTest.subStringAtIndex(index);
 	firstTest.replaceSubString();
+	firstTest.lowercase();
+	firstTest.uppercase();
+	firstTest.append(secondTest);
+	firstTest.prepend(secondTest);
 	system("pause");
 	return 0;
 }
