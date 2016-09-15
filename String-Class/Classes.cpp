@@ -35,16 +35,16 @@ char MyString::accessIndex(int index)//takes in an integer which is used as the 
 bool MyString::compareStrings(MyString second)//compares each character in the strings to check for equality
 {
 	bool equalStrings;
-	for (int i = 0;; i++)
+	for (int i = 0;; i++)//loops through the characters in the string comparing it to the second string
 	{
-		equalStrings = (m_Data[i] == second.m_Data[i]) ? true : false;
-		if (equalStrings == false)
+		equalStrings = (m_Data[i] == second.m_Data[i]) ? true : false;//if the characters are equal then the equalStrings is set to true
+		if (equalStrings == false)//if the equalStrings is false then break out of the loop 
 		{
 			std::cout << "Not equal" << std::endl;
 			break;
 		}
 	}
-	if (equalStrings == true)
+	if (equalStrings == true)//Once the loop is done check if equalStrings is true and if it is then say that they are equal
 	{
 		std::cout << "Equal" << std::endl;
 	}
@@ -53,14 +53,14 @@ bool MyString::compareStrings(MyString second)//compares each character in the s
 
 void MyString::append(MyString second) // appends the second string on the end of the first string
 {
-	int oldLength = getLength();
+	int oldLength = getLength();//get current length of the string
 	int i;
-	for (i = 0; second.m_Data[i] != '\0'; i++)
+	for (i = 0; second.m_Data[i] != '\0'; i++)//loop setting the original string with the second string appended on the end
 	{
 		m_Data[i + oldLength] = second.m_Data[i];
 	}
 	m_Data[i + oldLength] = '\0';
-	for (int i = 0; m_Data[i] != '\0'; i++)
+	for (int i = 0; m_Data[i] != '\0'; i++)//loops to print the new string
 	{
 		std::cout << m_Data[i];
 	}
@@ -69,24 +69,24 @@ void MyString::append(MyString second) // appends the second string on the end o
 
 void MyString::prepend(MyString second) //prepends the second string on the beginning of the first string which now has the second string appended on the front of it
 {
-	char copy[255];
-	int oldLength = second.getLength();
-	int original = getLength();
+	char copy[255];//array of characters ment to copy the current string
+	int oldLength = second.getLength();//get current length of second string
+	int original = getLength();//get current lenght of first string
 	int position;
-	for (int i = 0; i < original; i++)
+	for (int i = 0; i < original; i++)//fills the copy array with the current first string
 	{
 		copy[i] = m_Data[i];
 	}
-	for (int i = 0; i < original; i++)
+	for (int i = 0; i < original; i++)//uses the copy array to shift the current first string 
 	{
 		m_Data[i + oldLength] = copy[i];
 	}
-	for (position = 0; position < oldLength; position++)
+	for (position = 0; position < oldLength; position++)//places the second string where the first string is no longer
 	{
 		m_Data[position] = second.m_Data[position];
 	}
 	m_Data[position + original] = '\0';
-	for (int i = 0; m_Data[i] != '\0'; i++)
+	for (int i = 0; m_Data[i] != '\0'; i++)//loops to print the new string
 	{
 		std::cout << m_Data[i];
 	}
@@ -97,16 +97,12 @@ void MyString::lowercase() // makes all letters in the string lowercase
 {
 	for (int i = 0; i < getLength(); i++)
 	{
-		if ((int)m_Data[i] > 64 && (int)m_Data[i] < 91)
+		if ((int)m_Data[i] > 64 && (int)m_Data[i] < 91)//check if the letters in the string are uppercase
 		{
-			(char)m_Data[i] = (int)m_Data[i] + 32;
-		}
-		else
-		{
-			m_Data[i] = m_Data[i];
+			(char)m_Data[i] = (int)m_Data[i] + 32;//if they are then change their integer value to the ascii value for lowercase
 		}
 	}
-	for (int i = 0; m_Data[i] != '\0'; i++)
+	for (int i = 0; m_Data[i] != '\0'; i++)//prints the new string
 	{
 		std::cout << m_Data[i];
 	}
@@ -117,16 +113,12 @@ void MyString::uppercase()//makes all letters in the string capitalize
 {
 	for (int i = 0; i < getLength(); i++)
 	{
-		if ((int)m_Data[i] > 96 && (int)m_Data[i] < 123)
+		if ((int)m_Data[i] > 96 && (int)m_Data[i] < 123)//check if the letters in the string are lowercase
 		{
-			(char)m_Data[i] = (int)m_Data[i] - 32;
-		}
-		else
-		{
-			m_Data[i] = m_Data[i];
+			(char)m_Data[i] = (int)m_Data[i] - 32;//if they are then change their integer value to the ascii value for uppercase
 		}
 	}
-	for (int i = 0; m_Data[i] != '\0'; i++)
+	for (int i = 0; m_Data[i] != '\0'; i++)//print the new string
 	{
 		std::cout << m_Data[i];
 	}
@@ -136,21 +128,21 @@ void MyString::uppercase()//makes all letters in the string capitalize
 bool MyString::subString()//searches the string for a sequence of characters
 {
 	bool isSubStringFound=false;
-	const char * sub = { "bb" };
+	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
 	for (int i = 0; i < getLength(); i++)
 	{
-		if (m_Data[i] == sub[x])
+		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
 			x++;
-			if (x == 2)
+			if (x == 2)//check if x is 2 if so the set the value of the of isSubStringFound to true
 			{
 				isSubStringFound = true;
 				break;
 			}
 
 		}
-		else
+		else//if the characters at the index are not equal then set isSubStringFound to false and reset x to 0
 		{
 			isSubStringFound = false;
 			x = 0;
