@@ -6,7 +6,10 @@ class MyString
 public:
 	MyString() {};
 	MyString(char *first);
-	int getLength();
+
+	//DESCRIPTIONS:	function of type char that finds whatever character is at the index that it is passed
+	//PARAMETERS: function takes one parameter of type int that is used for the number of the index
+	//
 	char accessIndex(int);
 	bool compareStrings(MyString);
 	void append(MyString);
@@ -20,4 +23,5 @@ public:
 	const char *constantCStyleString();
 private:
 	char m_Data[255];
+	int m_Length;
 };

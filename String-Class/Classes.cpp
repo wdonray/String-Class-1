@@ -11,25 +11,14 @@ MyString::MyString(char *first)//constructor definition to set the value of the 
 		m_Data[i] = first[i];
 	}
 	m_Data[i] = '\0';
+	m_Length = i;
 }
-//function getLength
-//takes no arguments
-//gets the length of the string by counting until it reaches the null character
-int MyString::getLength()
-{
-	int i = 0;
-	while (m_Data[i] != '\0')
-	{
-		i++;
-	}
-	return i;//returns the value the loop stops at which is the length of the string
-}
+
 //function accessIndex
 //takes one argument of type int
 //takes in an integer which is used as the index to return a character at that index
 char MyString::accessIndex(int index)
 {
-	std::cout << m_Data[index] << std::endl;
 	return m_Data[index];
 }
 //funtion compareStrings
@@ -43,31 +32,26 @@ bool MyString::compareStrings(MyString second)
 		equalStrings = (m_Data[i] == second.m_Data[i]) ? true : false;//if the characters are equal then the equalStrings is set to true
 		if (equalStrings == false)//if the equalStrings is false then break out of the loop 
 		{
-			std::cout << "Not equal" << std::endl;
 			break;
 		}
-	}
-	if (equalStrings == true)//Once the loop is done check if equalStrings is true and if it is then say that they are equal
-	{
-		std::cout << "Equal" << std::endl;
+		if (i > m_Length&&i > second.m_Length)
+		{
+			break;
+		}
 	}
 	return equalStrings;
 }
 
 void MyString::append(MyString second) // appends the second string on the end of the first string
 {
-	int oldLength = getLength();//get current length of the string
+	int oldLength = m_Length;//get current length of the string
 	int i;
 	for (i = 0; second.m_Data[i] != '\0'; i++)//loop setting the original string with the second string appended on the end
 	{
 		m_Data[i + oldLength] = second.m_Data[i];
 	}
 	m_Data[i + oldLength] = '\0';
-	for (int i = 0; m_Data[i] != '\0'; i++)//loops to print the new string
-	{
-		std::cout << m_Data[i];
-	}
-	std::cout << std::endl;
+	m_Length = i +oldLength ;
 }
 //function prepend
 //takes one argument of type MyString
@@ -75,8 +59,8 @@ void MyString::append(MyString second) // appends the second string on the end o
 void MyString::prepend(MyString second) 
 {
 	char copy[255];//array of characters ment to copy the current string
-	int oldLength = second.getLength();//get current length of second string
-	int original = getLength();//get current lenght of first string
+	int oldLength = second.m_Length;//get current length of second string
+	int original = m_Length;//get current lenght of first string
 	int position;
 	for (int i = 0; i < original; i++)//fills the copy array with the current first string
 	{
@@ -91,47 +75,33 @@ void MyString::prepend(MyString second)
 		m_Data[position] = second.m_Data[position];
 	}
 	m_Data[position + original] = '\0';
-	for (int i = 0; m_Data[i] != '\0'; i++)//loops to print the new string
-	{
-		std::cout << m_Data[i];
-	}
-	std::cout << std::endl;
+	m_Length += second.m_Length;
 }
 //function lowercase
 //takes no arguments
 // makes all letters in the string lowercase
 void MyString::lowercase() 
 {
-	for (int i = 0; i < getLength(); i++)
+	for (int i = 0; i < m_Length; i++)
 	{
 		if ((int)m_Data[i] > 64 && (int)m_Data[i] < 91)//check if the letters in the string are uppercase
 		{
 			(char)m_Data[i] = (int)m_Data[i] + 32;//if they are then change their integer value to the ascii value for lowercase
 		}
 	}
-	for (int i = 0; m_Data[i] != '\0'; i++)//prints the new string
-	{
-		std::cout << m_Data[i];
-	}
-	std::cout << std::endl;
 }
 //function uppercase
 // no arguments
 //makes all letters in the string uppercase
 void MyString::uppercase()
 {
-	for (int i = 0; i < getLength(); i++)
+	for (int i = 0; i < m_Length; i++)
 	{
 		if ((int)m_Data[i] > 96 && (int)m_Data[i] < 123)//check if the letters in the string are lowercase
 		{
 			(char)m_Data[i] = (int)m_Data[i] - 32;//if they are then change their integer value to the ascii value for uppercase
 		}
 	}
-	for (int i = 0; m_Data[i] != '\0'; i++)//print the new string
-	{
-		std::cout << m_Data[i];
-	}
-	std::cout << std::endl;
 }
 //function subString
 //takes no arguments
@@ -141,7 +111,7 @@ bool MyString::subString()
 	bool isSubStringFound=false;
 	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
-	for (int i = 0; i < getLength(); i++)
+	for (int i = 0; i < m_Length; i++)
 	{
 		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
@@ -159,7 +129,6 @@ bool MyString::subString()
 			x = 0;
 		}
 	}
-	std::cout << isSubStringFound << std::endl;;
 	return isSubStringFound;
 }
 //function subStringAtIndex
@@ -170,7 +139,7 @@ bool MyString::subStringAtIndex(int index)
 	bool isSubStringFoundAtIndex = false;
 	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
-	for (int i = 0 + index; i < getLength(); i++)
+	for (int i = index; i < m_Length; i++)
 	{
 		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
@@ -187,7 +156,6 @@ bool MyString::subStringAtIndex(int index)
 			x = 0;
 		}
 	}
-	std::cout << isSubStringFoundAtIndex << std::endl;
 	return isSubStringFoundAtIndex;
 }
 //function replaceSubString
@@ -199,7 +167,7 @@ void MyString::replaceSubString()
 	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
 	const char * subReplace = { "cc" };//characters that will replace the ones that are being searched for
-	for (int i = 0; i < getLength(); i++)
+	for (int i = 0; i < m_Length; i++)
 	{
 		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
@@ -207,7 +175,7 @@ void MyString::replaceSubString()
 			if (x == 2)//check if x is 2 if so the set the value of the of isSubStringFoundAtIndex to true
 			{
 				isSubStringFound = true;
-				for (int i = 0; i < getLength(); i++)
+				for (int i = 0; i < m_Length; i++)
 				{
 					if (m_Data[i] == sub[x])
 					{
@@ -223,11 +191,6 @@ void MyString::replaceSubString()
 			}
 		}
 	}
-	for (int i = 0; m_Data[i] != '\0'; i++)
-	{
-		std::cout << m_Data[i];
-	}
-	std::cout << std::endl;
 }
 //functinon getString
 //takes no arguments
