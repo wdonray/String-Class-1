@@ -11,13 +11,15 @@ public:
 	//PARAMETERS: function takes one parameter of type int that is used for the number of the index
 	//
 	char accessIndex(int);
+	
+	int getLength();
 	bool compareStrings(MyString);
 	void append(MyString);
 	void prepend(MyString);
 	void lowercase();
 	void uppercase();
-	bool subString();
-	bool subStringAtIndex(int);
+	bool subString(char *);
+	bool subStringAtIndex(int,char*);
 	void replaceSubString();
 	char *getString();
 	const char *constantCStyleString();

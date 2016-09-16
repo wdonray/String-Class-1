@@ -13,7 +13,10 @@ MyString::MyString(char *first)//constructor definition to set the value of the 
 	m_Data[i] = '\0';
 	m_Length = i;
 }
-
+int MyString::getLength()
+{
+	return m_Length;
+}
 //function accessIndex
 //takes one argument of type int
 //takes in an integer which is used as the index to return a character at that index
@@ -106,17 +109,17 @@ void MyString::uppercase()
 //function subString
 //takes no arguments
 //searches the string for a sequence of characters
-bool MyString::subString()
+bool MyString::subString(char *sub)
 {
 	bool isSubStringFound=false;
-	const char * sub = { "bb" };//characters that are being searched for
+	MyString temp = MyString(sub);//characters that are being searched for
 	int x = 0;
 	for (int i = 0; i < m_Length; i++)
 	{
 		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
 			x++;
-			if (x == 2)//check if x is 2 if so the set the value of the of isSubStringFound to true
+			if (x == temp.m_Length)//check if x is 2 if so the set the value of the of isSubStringFound to true
 			{
 				isSubStringFound = true;
 				break;
@@ -134,17 +137,17 @@ bool MyString::subString()
 //function subStringAtIndex
 //takes one argument of type int
 //searches the string for a sequence of characters starting at a certain index
-bool MyString::subStringAtIndex(int index)
+bool MyString::subStringAtIndex(int index,char * sub)
 {
+	MyString temp = MyString(sub);
 	bool isSubStringFoundAtIndex = false;
-	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
 	for (int i = index; i < m_Length; i++)
 	{
 		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
 			x++;
-			if (x == 2)//check if x is 2 if so the set the value of the of isSubStringFoundAtIndex to true
+			if (x == temp.m_Length)//check if x is 2 if so the set the value of the of isSubStringFoundAtIndex to true
 			{
 				isSubStringFoundAtIndex = true;
 				break;
@@ -195,12 +198,6 @@ void MyString::replaceSubString()
 //functinon getString
 //takes no arguments
 //gets the string from the users input
-char *MyString::getString()
-{
-	char word[255];
-	std::cin.getline(word, 255);
-	return word;
-}
 
 const char * MyString::constantCStyleString()
 {
