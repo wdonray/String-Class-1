@@ -168,20 +168,20 @@ bool MyString::subString()
 bool MyString::subStringAtIndex(int index)
 {
 	bool isSubStringFoundAtIndex = false;
-	const char * sub = { "bb" };
+	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
 	for (int i = 0 + index; i < getLength(); i++)
 	{
-		if (m_Data[i] == sub[x])
+		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
 			x++;
-			if (x == 2)
+			if (x == 2)//check if x is 2 if so the set the value of the of isSubStringFoundAtIndex to true
 			{
 				isSubStringFoundAtIndex = true;
 				break;
 			}
 		}
-		else
+		else//if the characters at the index are not equal then set isSubStringFound to false and reset x to 0
 		{
 			isSubStringFoundAtIndex = false;
 			x = 0;
@@ -196,15 +196,15 @@ bool MyString::subStringAtIndex(int index)
 void MyString::replaceSubString()
 {
 	bool isSubStringFound;
-	const char * sub = { "bb" };
-	const char * subReplace = { "cc" };
+	const char * sub = { "bb" };//characters that are being searched for
 	int x = 0;
+	const char * subReplace = { "cc" };//characters that will replace the ones that are being searched for
 	for (int i = 0; i < getLength(); i++)
 	{
-		if (m_Data[i] == sub[x])
+		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
 			x++;
-			if (x == 2)
+			if (x == 2)//check if x is 2 if so the set the value of the of isSubStringFoundAtIndex to true
 			{
 				isSubStringFound = true;
 				for (int i = 0; i < getLength(); i++)
@@ -214,7 +214,7 @@ void MyString::replaceSubString()
 						m_Data[i] = subReplace[x];
 						x++;
 					}
-					else
+					else//if the characters at the index are not equal then set isSubStringFound to false and reset x to 0
 					{
 						x = 0;
 					}
@@ -222,14 +222,7 @@ void MyString::replaceSubString()
 				break;
 			}
 		}
-		else
-		{
-			isSubStringFound = false;
-			x = 0;
-		}
 	}
-	x = 0;
-
 	for (int i = 0; m_Data[i] != '\0'; i++)
 	{
 		std::cout << m_Data[i];
