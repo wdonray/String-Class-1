@@ -54,12 +54,12 @@ void MyString::append(MyString second) // appends the second string on the end o
 		m_Data[i + oldLength] = second.m_Data[i];
 	}
 	m_Data[i + oldLength] = '\0';
-	m_Length = i +oldLength ;
+	m_Length = i + oldLength;
 }
 //function prepend
 //takes one argument of type MyString
 //prepends the second string on the beginning of the first string which now has the second string appended on the front of it
-void MyString::prepend(MyString second) 
+void MyString::prepend(MyString second)
 {
 	char copy[255];//array of characters ment to copy the current string
 	int oldLength = second.m_Length;//get current length of second string
@@ -83,7 +83,7 @@ void MyString::prepend(MyString second)
 //function lowercase
 //takes no arguments
 // makes all letters in the string lowercase
-void MyString::lowercase() 
+void MyString::lowercase()
 {
 	for (int i = 0; i < m_Length; i++)
 	{
@@ -111,7 +111,7 @@ void MyString::uppercase()
 //searches the string for a sequence of characters
 bool MyString::subString(char *sub)
 {
-	bool isSubStringFound=false;
+	bool isSubStringFound = false;
 	MyString temp = MyString(sub);//characters that are being searched for
 	int x = 0;
 	for (int i = 0; i < m_Length; i++)
@@ -137,7 +137,7 @@ bool MyString::subString(char *sub)
 //function subStringAtIndex
 //takes one argument of type int
 //searches the string for a sequence of characters starting at a certain index
-bool MyString::subStringAtIndex(int index,char * sub)
+bool MyString::subStringAtIndex(int index, char * sub)
 {
 	MyString temp = MyString(sub);
 	bool isSubStringFoundAtIndex = false;
@@ -194,6 +194,58 @@ void MyString::replaceSubString()
 			}
 		}
 	}
+}
+void MyString::replace(char*sub, char*rep)
+{
+	bool isSubStringFound;
+	MyString temp = MyString(sub);//characters that are being searched for
+	MyString newString = MyString(rep);//characters that are going to be replaced
+	MyString copy = MyString(m_Data);
+	int x = 0;
+	for (int i = 0; i < m_Length; i++)
+	{
+		int CopyIndex = i + 1;
+
+		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
+		{
+			x++;
+			if (x == temp.m_Length)//check to set the value of the of isSubStringFound to true
+			{
+				x = 0;
+				isSubStringFound = true;
+				if (temp.m_Length <= newString.m_Length)
+				{
+					m_Length += (newString.m_Length - temp.m_Length);
+				}
+				else
+				{
+					m_Length -= (temp.m_Length - newString.m_Length);
+				}
+				for (int j = 0; j < newString.m_Length; j++)
+				{
+					m_Data[(j + i) - (temp.m_Length - 1)] = newString.m_Data[j];
+				}
+				if (i <= m_Length - newString.m_Length)
+				{
+					for (int DataIndex = i - temp.m_Length + newString.m_Length + 1; DataIndex < m_Length; DataIndex++)//
+					{
+						m_Data[DataIndex] = copy.m_Data[CopyIndex];
+						CopyIndex++;
+					}
+				}
+			}
+
+		}
+		else//if the characters at the index are not equal then set isSubStringFound to false and reset x to 0
+		{
+			isSubStringFound = false;
+			x = 0;
+		}
+		m_Data[m_Length] = '\0';
+
+
+	}
+
 }
 //functinon getString
 //takes no arguments

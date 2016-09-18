@@ -21,6 +21,7 @@ public:
 	bool subString(char *);
 	bool subStringAtIndex(int,char*);
 	void replaceSubString();
+	void replace(char*, char*);
 	char *getString();
 	const char *constantCStyleString();
 private:
