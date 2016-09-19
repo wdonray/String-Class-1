@@ -10,10 +10,6 @@ int main()
 	MyString firstString = MyString(First);
 	MyString secondString = MyString(Second);
 	int index = 3;
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << (char)22;
-	}
 	std::cout << "\nLength: " << firstString.getLength() << "\n\n"; 
 	std::cout << "At the Index 3: " << firstString.accessIndex(index) << "\n\n";
 	std::cout << "Strings Equal? "; 
