@@ -16,8 +16,7 @@ int main()
 	std::cout << "Strings Equal? "<< firstString.compareStrings(secondString) << "\n\n";
 	std::cout << firstString.subString("ee") << "\n\n";
 	std::cout << firstString.subStringAtIndex(index,"ee") << "\n\n";
-	//firstString.replaceSubString();
-	firstString.replace("cancer", "death");
+	firstString.replace("aa", "A");
 	firstString.append(secondString);
 	firstString.prepend(secondString);
 	firstString.lowercase();

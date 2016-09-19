@@ -197,23 +197,22 @@ void MyString::replaceSubString()
 }
 void MyString::replace(char*sub, char*rep)
 {
-	bool isSubStringFound;
 	MyString temp = MyString(sub);//characters that are being searched for
 	MyString newString = MyString(rep);//characters that are going to be replaced
 	MyString copy = MyString(m_Data);
 	int x = 0;
+	int track = 0;
+	int CopyIndex = 0;
 	for (int i = 0; i < m_Length; i++)
 	{
-		int CopyIndex = i + 1;
-
+		CopyIndex = track;
 		if (m_Data[i] == sub[x])//check if the characters at the index i are the same
 		{
 			x++;
 			if (x == temp.m_Length)//check to set the value of the of isSubStringFound to true
 			{
 				x = 0;
-				isSubStringFound = true;
-				if (temp.m_Length <= newString.m_Length)
+				if (temp.m_Length < newString.m_Length)
 				{
 					m_Length += (newString.m_Length - temp.m_Length);
 				}
@@ -221,29 +220,38 @@ void MyString::replace(char*sub, char*rep)
 				{
 					m_Length -= (temp.m_Length - newString.m_Length);
 				}
+				CopyIndex++;
 				for (int j = 0; j < newString.m_Length; j++)
 				{
 					m_Data[(j + i) - (temp.m_Length - 1)] = newString.m_Data[j];
 				}
-				if (i <= m_Length - newString.m_Length)
 				{
+					int placeHolder = CopyIndex;
 					for (int DataIndex = i - temp.m_Length + newString.m_Length + 1; DataIndex < m_Length; DataIndex++)//
 					{
 						m_Data[DataIndex] = copy.m_Data[CopyIndex];
 						CopyIndex++;
 					}
+					CopyIndex = placeHolder;
+				}
+				if (temp.m_Length < newString.m_Length)
+				{
+					i = i + (newString.m_Length - temp.m_Length);
+				}
+				else if (temp.m_Length>newString.m_Length)
+				{
+					i = i - (temp.m_Length - newString.m_Length);
 				}
 			}
-
 		}
+
 		else//if the characters at the index are not equal then set isSubStringFound to false and reset x to 0
 		{
-			isSubStringFound = false;
 			x = 0;
 		}
 		m_Data[m_Length] = '\0';
-
-
+		
+		track++;
 	}
 
 }
