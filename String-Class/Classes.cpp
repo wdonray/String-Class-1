@@ -1,5 +1,4 @@
 #include "Classes.h"
-#include <iostream>
 
 
 
@@ -45,7 +44,7 @@ bool MyString::compareStrings(MyString second)
 	return equalStrings;
 }
 
-void MyString::append(MyString second) // appends the second string on the end of the first string
+char * MyString::append(MyString second) // appends the second string on the end of the first string
 {
 	int oldLength = m_Length;//get current length of the string
 	int i;
@@ -55,35 +54,36 @@ void MyString::append(MyString second) // appends the second string on the end o
 	}
 	m_Data[i + oldLength] = '\0';
 	m_Length = i + oldLength;
+	return m_Data;
 }
 //function prepend
 //takes one argument of type MyString
 //prepends the second string on the beginning of the first string which now has the second string appended on the front of it
-void MyString::prepend(MyString second)
+char * MyString::prepend(MyString second)
 {
 	char copy[255];//array of characters ment to copy the current string
 	int oldLength = second.m_Length;//get current length of second string
-	int original = m_Length;//get current lenght of first string
-	int position;
-	for (int i = 0; i < original; i++)//fills the copy array with the current first string
+	int i = 0;
+	for (int i = 0; i < m_Length; i++)//fills the copy array with the current first string
 	{
 		copy[i] = m_Data[i];
 	}
-	for (int i = 0; i < original; i++)//uses the copy array to shift the current first string 
+	for (int i = 0; i < m_Length; i++)//uses the copy array to shift the current first string 
 	{
 		m_Data[i + oldLength] = copy[i];
 	}
-	for (position = 0; position < oldLength; position++)//places the second string where the first string is no longer
+	for (i = 0; i < oldLength; i++)//places the second string where the first string is no longer
 	{
-		m_Data[position] = second.m_Data[position];
+		m_Data[i] = second.m_Data[i];
 	}
-	m_Data[position + original] = '\0';
+	m_Data[i + m_Length] = '\0';
 	m_Length += second.m_Length;
+	return m_Data;
 }
 //function lowercase
 //takes no arguments
 // makes all letters in the string lowercase
-void MyString::lowercase()
+char * MyString::lowercase()
 {
 	for (int i = 0; i < m_Length; i++)
 	{
@@ -92,11 +92,12 @@ void MyString::lowercase()
 			(char)m_Data[i] = (int)m_Data[i] + 32;//if they are then change their integer value to the ascii value for lowercase
 		}
 	}
+	return m_Data;
 }
 //function uppercase
 // no arguments
 //makes all letters in the string uppercase
-void MyString::uppercase()
+char * MyString::uppercase()
 {
 	for (int i = 0; i < m_Length; i++)
 	{
@@ -105,6 +106,7 @@ void MyString::uppercase()
 			(char)m_Data[i] = (int)m_Data[i] - 32;//if they are then change their integer value to the ascii value for uppercase
 		}
 	}
+	return m_Data;
 }
 //function subString
 //takes no arguments
@@ -161,6 +163,7 @@ bool MyString::subStringAtIndex(int index, char * sub)
 	}
 	return isSubStringFoundAtIndex;
 }
+//DOESNT WORK
 //function replaceSubString
 //takes no arguments
 //searches the string for a sequence of characters and if found replaces them with another sequence of characters
@@ -195,7 +198,7 @@ void MyString::replaceSubString()
 		}
 	}
 }
-void MyString::replace(char*sub, char*rep)
+char * MyString::replace(char*sub, char*rep)
 {
 	MyString temp = MyString(sub);//characters that are being searched for
 	MyString newString = MyString(rep);//characters that are going to be replaced
@@ -250,10 +253,10 @@ void MyString::replace(char*sub, char*rep)
 			x = 0;
 		}
 		m_Data[m_Length] = '\0';
-		
+
 		track++;
 	}
-
+	return m_Data;
 }
 //functinon getString
 //takes no arguments

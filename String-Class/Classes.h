@@ -14,15 +14,14 @@ public:
 	
 	int getLength();
 	bool compareStrings(MyString);
-	void append(MyString);
-	void prepend(MyString);
-	void lowercase();
-	void uppercase();
+	char * append(MyString);
+	char * prepend(MyString);
+	char * lowercase();
+	char * uppercase();
 	bool subString(char *);
 	bool subStringAtIndex(int,char*);
-	void replaceSubString();
-	void replace(char*, char*);
-	char *getString();
+	void replaceSubString();//not working
+	char * replace(char*, char*);
 	const char *constantCStyleString();
 private:
 	char m_Data[255];

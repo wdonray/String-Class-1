@@ -1,6 +1,5 @@
 #include<iostream>>
 #include"Classes.h"
-#include<cassert>
 
 int main()
 {
@@ -11,16 +10,24 @@ int main()
 	MyString firstString = MyString(First);
 	MyString secondString = MyString(Second);
 	int index = 3;
-	std::cout << "\nConstant C Style String: " << firstString.constantCStyleString() << std::endl;;
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << (char)22;
+	}
+	std::cout << "\nLength: " << firstString.getLength() << "\n\n"; 
 	std::cout << "At the Index 3: " << firstString.accessIndex(index) << "\n\n";
-	std::cout << "Strings Equal? "<< firstString.compareStrings(secondString) << "\n\n";
-	std::cout << firstString.subString("ee") << "\n\n";
-	std::cout << firstString.subStringAtIndex(index,"ee") << "\n\n";
-	firstString.replace("aa", "A");
-	firstString.append(secondString);
-	firstString.prepend(secondString);
-	firstString.lowercase();
-	firstString.uppercase();
+	std::cout << "Strings Equal? "; 
+	(firstString.compareStrings(secondString)==1)? std::cout << "True\n\n":std::cout<<"False\n\n";
+	std::cout << "Constant C Style String: " << firstString.constantCStyleString() << "\n\n";
+	std::cout << "Is sub string found: ";
+	(firstString.subString("ee") == 1) ? std::cout << "True\n\n" : std::cout << "False\n\n";
+	std::cout << "Is sub string found starting at index " << index << ": ";
+	(firstString.subStringAtIndex(index, "ee")==1) ? std::cout << "True\n\n":std::cout<<"False\n\n";
+	std::cout << "Replace: " << firstString.replace("a", "A") << "\n\n";
+	std::cout << "Append: " << firstString.append(" <- Back") << "\n\n";
+	std::cout << "Prepend: " <<	firstString.prepend("Front -> ") << "\n\n";
+	std::cout << "Lowercase: " << firstString.lowercase() << "\n\n";
+	std::cout << "Uppercase: " << firstString.uppercase() << "\n\n";
 	system("pause");
 	return 0;
 }
