@@ -25,6 +25,7 @@ int main()
 	std::cout << "Prepend: " <<	firstString.prepend("Front -> ") << "\n\n";
 	std::cout << "Lowercase: " << firstString.ToLower() << "\n\n";
 	std::cout << "Uppercase: " << firstString.ToUpper() << "\n\n";
+	std::cout << ";JLKSD;JKLSDFKL;JDFSLJK;" << std::endl;
 	system("pause");
 	return 0;
 }
