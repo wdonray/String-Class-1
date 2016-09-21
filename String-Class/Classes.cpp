@@ -36,7 +36,7 @@ bool MyString::compareStrings(MyString second)
 		{
 			break;
 		}
-		if (i > m_Length&&i > second.m_Length)
+		if (i > m_Length && i > second.m_Length)
 		{
 			break;
 		}
@@ -164,7 +164,7 @@ bool MyString::subStringAtIndex(int index, char * sub)
 	return isSubStringFoundAtIndex;
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
-//									NOT WORKING
+//									       NOT WORKING
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 //	DOES NOT WORK AT ALL 
@@ -256,7 +256,6 @@ char * MyString::replace(char*sub, char*rep)
 				}
 			}
 		}
-
 		else//if the characters at the index are not equal then set isSubStringFound to false and reset x to 0
 		{
 			x = 0;

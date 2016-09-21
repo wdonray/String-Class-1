@@ -10,7 +10,8 @@ int main()
 	MyString firstString = MyString(First);
 	MyString secondString = MyString(Second);
 	int index = 3;
-	std::cout << "\nLength: " << firstString.getLength() << "\n\n"; 
+	std::cout << "\nLength of first: " << firstString.getLength() << "\n\n"; 
+	std::cout << "Length of second: " << secondString.getLength() << "\n\n";
 	std::cout << "At the Index 3: " << firstString.accessIndex(index) << "\n\n";
 	std::cout << "Strings Equal? "; 
 	(firstString.compareStrings(secondString)==1)? std::cout << "True\n\n":std::cout<<"False\n\n";
