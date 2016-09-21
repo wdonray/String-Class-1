@@ -83,7 +83,7 @@ char * MyString::prepend(MyString second)
 //function lowercase
 //takes no arguments
 // makes all letters in the string lowercase
-char * MyString::lowercase()
+char * MyString::ToLower()
 {
 	for (int i = 0; i < m_Length; i++)
 	{
@@ -97,7 +97,7 @@ char * MyString::lowercase()
 //function uppercase
 // no arguments
 //makes all letters in the string uppercase
-char * MyString::uppercase()
+char * MyString::ToUpper()
 {
 	for (int i = 0; i < m_Length; i++)
 	{
@@ -163,7 +163,11 @@ bool MyString::subStringAtIndex(int index, char * sub)
 	}
 	return isSubStringFoundAtIndex;
 }
-//DOESNT WORK
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//									NOT WORKING
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+//	DOES NOT WORK AT ALL 
 //function replaceSubString
 //takes no arguments
 //searches the string for a sequence of characters and if found replaces them with another sequence of characters
@@ -198,6 +202,11 @@ void MyString::replaceSubString()
 		}
 	}
 }
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//											NOT WORKING
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 char * MyString::replace(char*sub, char*rep)
 {
 	MyString temp = MyString(sub);//characters that are being searched for

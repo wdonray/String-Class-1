@@ -22,8 +22,8 @@ int main()
 	std::cout << "Replace: " << firstString.replace("a", "A") << "\n\n";
 	std::cout << "Append: " << firstString.append(" <- Back") << "\n\n";
 	std::cout << "Prepend: " <<	firstString.prepend("Front -> ") << "\n\n";
-	std::cout << "Lowercase: " << firstString.lowercase() << "\n\n";
-	std::cout << "Uppercase: " << firstString.uppercase() << "\n\n";
+	std::cout << "Lowercase: " << firstString.ToLower() << "\n\n";
+	std::cout << "Uppercase: " << firstString.ToUpper() << "\n\n";
 	system("pause");
 	return 0;
 }
