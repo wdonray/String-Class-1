@@ -3,12 +3,14 @@ class Room
 {
 public:
 	Room() {};
-	Room(bool, bool, bool, bool) {};
+	Room(bool, bool, bool, bool, const char*);
+	void roomInfo();
 private:
 	bool m_EDoor;
 	bool m_WDoor;
 	bool m_NDoor;
 	bool m_SDoor;
+	const char * m_text;
 	//Room(bool EastDoor, bool WestDoor, bool NorthDoor, bool SouthDoor);
 };
 
@@ -25,5 +27,9 @@ private:
 
 class Hero : Enemy
 {
+public:
+	Hero() {};
+	Hero(char * name);
+	char * m_name;
 private:
 };
