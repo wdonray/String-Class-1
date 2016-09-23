@@ -9,7 +9,7 @@ int main()
 {
 	srand(time(NULL));
 	bool DidYouWin = false;
-	std::cout << "!Welcome to Death and Despair! \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth... \n \n*Press 'C' enter the game or 'Q' to exit*" << std::endl;
+	std::cout << "!Welcome to Death and Despair! \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth... \n \n*Press 'C' to enter the game or 'Q' to exit*" << std::endl;
 	char m_name[] = { "" };
 	std::cin.getline(m_name, 255);
 	Hero User = Hero(m_name, 0, 0, 0);
