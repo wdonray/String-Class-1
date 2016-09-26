@@ -10,15 +10,18 @@ int main()
 	srand(time(NULL));
 	bool DidYouWin = false;
 	std::cout << "!Welcome to Death and Despair! \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth... \n \n*Press 'E' to enter the game or 'Q' to quit*" << std::endl;
-	char go[] = { "E" };
-	char no[] = { "Q" };
-	if (std::cin >> go)
+	char go = 'E';
+	char no = 'Q';
+	for (int i = 0;;)
 	{
-
-	}
-	else if (std::cin >> no)
-	{
-		return 0;
+		if (std::cin >> go)
+		{
+			std::cout << "You fool...";
+		}
+		else if (std::cin >> no)
+		{
+			break;
+		}
 	}
 	char m_name[] = { "" };
 	std::cin.getline(m_name, 255);
