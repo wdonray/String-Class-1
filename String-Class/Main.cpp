@@ -22,7 +22,7 @@ int main()
 	Room Room03 = Room{ 1,1,0,1, "Three doors are in this room East, South, and West. \n~Which path will you take?" };
 	Room Room04 = Room{ 1,1,0,1, "RNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNI\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
 	Room Room05 = Room{ 1,0,0,1, "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
-	Room Room06 = Room{ 1,0,1,1, "Three doors are in this room North, East, South. \n~Which path will you take?" };
+	Room Room06 = Room{ 1,0,1,1, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
 	Room Room07 = Room{ 1,1,1,1, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
 	Room Room08 = Room{ 1,1,1,1, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
 	Room Room09 = Room{ 1,1,1,1, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
