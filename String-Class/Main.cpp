@@ -40,7 +40,7 @@ int main()
 	Room Room04 = Room{ 1,1,0,1,0,0,0, "RNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNING -- WARNI\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
 	Room Room05 = Room{ 1,0,0,1,0,0,0, "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
 	Room Room06 = Room{ 1,0,1,1,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
-	Room Room07 = Room{ 1,1,1,1,0,0,1, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room07 = Room{ 1,1,1,1,0,0,1, "There seems to be two weapons of some sort in this room \nA Mace and a Stick? \nIf you would like one, type Take and then your weapon of choice, if not ignore. (EXAMPLE: Take Mace) \n \nFour doors are here go anywhere you please. \n~Which path shall you take?" };
 	Room Room08 = Room{ 1,1,1,1,1,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
 	Room Room09 = Room{ 1,1,1,1,0,1,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
 	Room Room10 = Room{ 0,1,1,1,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
