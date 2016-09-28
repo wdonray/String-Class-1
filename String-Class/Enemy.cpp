@@ -7,10 +7,11 @@ Enemy::Enemy(int h, int d)
 	m_damage = d;
 }
 
-Hero::Hero(char * name, bool weapon, int heroX, int heroY)
+Hero::Hero(char * name, bool weaponM, bool weaponS, int heroX, int heroY)
 {
 	m_name = name;
-	m_weapon = weapon;
+	m_weaponM = weaponM;
+	m_weaponS = weaponS;
 	m_heroX = heroX;
 	m_heroY = heroY;
 }
