@@ -4,7 +4,7 @@
 #include<Windows.h>
 
 
-Room::Room(bool EastDoor, bool WestDoor, bool NorthDoor, bool SouthDoor, bool Enemyin, bool Jokein, bool Weaponin, const char * text)
+Room::Room(bool EastDoor, bool WestDoor, bool NorthDoor, bool SouthDoor, bool Enemyin, bool Jokein, bool Weaponin, bool DeathRoom, const char * text)
 {
 	m_EDoor = EastDoor;
 	m_WDoor = WestDoor;
@@ -13,6 +13,7 @@ Room::Room(bool EastDoor, bool WestDoor, bool NorthDoor, bool SouthDoor, bool En
 	m_Enemyin = Enemyin;
 	m_Jokein = Jokein;
 	m_Weaponin = Weaponin;
+	m_Death = DeathRoom;
 	m_text = text;
 }
 void Room::PrintInfo()

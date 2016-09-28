@@ -1,4 +1,6 @@
 #pragma once
+#include"MyString.h"
+#include "Room.h"
 class Enemy
 {
 public:
@@ -24,5 +26,6 @@ public:
 	int m_East();
 	int m_South();
 	int m_West();
+	int Response(MyString, Room[][5]);
 
 };
