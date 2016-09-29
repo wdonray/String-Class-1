@@ -21,6 +21,7 @@ int main()
 	}
 	if (go == 'E')
 	{
+		system("cls");
 		std::cout << "You fool... *Sighhh* Now what is your name? \n";
 	}
 	else if (go == 'Q')
@@ -35,7 +36,7 @@ int main()
 	std::cout << "Hello " << m_name << ", and welcome to your despair." << "\n \n";
 	Sleep(800);
 	std::cout << "You were thrown into this death trap for no reason. You must find the exit in \norder to live... Enjoy." << "\n \n";
-	Sleep(3500);
+	Sleep(4500);
 	system("cls");
 	Room Room01 = Room{ 1,0,0,1,0,0,0,0,  "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
 	Room Room02 = Room{ 1,1,0,1,0,0,0,0, "The room is empty... For now. \n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
