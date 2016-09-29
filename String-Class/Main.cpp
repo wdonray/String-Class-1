@@ -9,7 +9,7 @@ int main()
 {
 	srand(time(NULL));
 	bool DidYouWin = false;
-	std::cout << "			!Welcome to Death and Despair! \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth... \n \n		*Press 'E' to enter the game or 'Q' to quit*" << std::endl;
+	std::cout << "			!Welcome to Death and Despair! \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth...\nWARNING: If you are impatient and just spam Enter, game will close! \n \n		*Press 'E' to enter the game or 'Q' to quit*" << std::endl;
 	char go;
 	std::cin >> go;
 	std::cin.ignore();
@@ -28,7 +28,6 @@ int main()
 	{
 		return 0;
 	}
-	Enemy first = Enemy(500, 50);
 	char m_name[255];
 	std::cin.getline(m_name, 255);
 	Hero User = Hero(m_name, 0, 0, 0, 0);
@@ -38,31 +37,31 @@ int main()
 	std::cout << "You were thrown into this death trap for no reason. You must find the exit in \norder to live... Enjoy." << "\n \n";
 	Sleep(4500);
 	system("cls");
-	Room Room01 = Room{ 1,0,0,1,0,0,0,0,0,  "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
-	Room Room02 = Room{ 1,1,0,1,0,0,0,0,0, "The room is empty... For now. \n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
-	Room Room03 = Room{ 1,1,0,1,0,0,0,0,0, "Three doors are in this room East, South, and West. \n~Which path will you take?" };
-	Room Room04 = Room{ 1,1,0,1,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
-	Room Room05 = Room{ 1,0,0,1,0,0,0,1,0, ""};
-	Room Room06 = Room{ 1,0,1,1,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
-	Room Room07 = Room{ 1,1,1,1,0,0,1,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
-	Room Room08 = Room{ 1,1,1,1,1,0,0,0,0, "" };
-	Room Room09 = Room{ 1,1,1,1,0,1,0,0,0, "" };
-	Room Room10 = Room{ 0,1,1,1,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room North, West, and South. \n~Which path will you take?" };
-	Room Room11 = Room{ 1,0,1,1,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take?" };
-	Room Room12 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
-	Room Room13 = Room{ 1,1,1,1,0,0,0,1,0, "Want to hear a joke? \n" };
-	Room Room14 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
-	Room Room15 = Room{ 0,1,1,1,0,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
-	Room Room16 = Room{ 1,0,1,1,0,1,0,0,0, "			 -- WARNING -- WARNING -- 			" };
-	Room Room17 = Room{ 1,1,1,1,1,0,0,0,0, "" };
-	Room Room18 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
-	Room Room19 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
-	Room Room20 = Room{ 0,1,1,1,0,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
-	Room Room21 = Room{ 1,0,0,1,0,0,0,1,0, ""};
-	Room Room22 = Room{ 1,1,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
-	Room Room23 = Room{ 1,1,1,0,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
-	Room Room24 = Room{ 1,1,1,0,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
-	Room Room25 = Room{ 0,0,0,0,0,0,0,0,1, "" };
+	Room Room01 = Room{ 1,0,0,1,0,0,0,0,0,0,  "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
+	Room Room02 = Room{ 1,1,0,1,0,0,0,0,0,0, "The room is empty... For now. \n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
+	Room Room03 = Room{ 1,1,0,1,0,0,0,0,0,0, "Three doors are in this room East, South, and West. \n~Which path will you take?" };
+	Room Room04 = Room{ 1,1,0,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
+	Room Room05 = Room{ 1,0,0,1,0,0,0,0,1,0, "" };
+	Room Room06 = Room{ 1,0,1,1,0,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
+	Room Room07 = Room{ 1,1,1,1,0,0,0,1,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room08 = Room{ 1,1,1,1,1,0,0,0,0,0, "" };
+	Room Room09 = Room{ 1,1,1,1,0,1,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room10 = Room{ 0,1,1,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room North, West, and South. \n~Which path will you take?" };
+	Room Room11 = Room{ 1,0,1,1,0,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take?" };
+	Room Room12 = Room{ 1,1,1,1,0,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
+	Room Room13 = Room{ 1,1,1,1,0,0,0,0,1,0, "Want to hear a joke? \n" };
+	Room Room14 = Room{ 1,1,1,1,0,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
+	Room Room15 = Room{ 0,1,1,1,0,0,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
+	Room Room16 = Room{ 1,0,1,1,0,0,1,0,0,0, "			 -- WARNING -- WARNING -- 			" };
+	Room Room17 = Room{ 1,1,1,1,1,0,0,0,0,0, "" };
+	Room Room18 = Room{ 1,1,1,1,0,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
+	Room Room19 = Room{ 1,1,1,1,0,0,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room20 = Room{ 0,1,1,1,0,0,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
+	Room Room21 = Room{ 1,0,0,1,0,0,0,0,1,0, "" };
+	Room Room22 = Room{ 1,1,1,0,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
+	Room Room23 = Room{ 1,1,1,0,0,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
+	Room Room24 = Room{ 1,1,1,0,0,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
+	Room Room25 = Room{ 0,0,0,0,0,0,0,0,0,1, "" };
 	Room Rooms[5][5] =
 	{
 		{ Room01,Room02,Room03,Room04,Room05 },
@@ -73,19 +72,22 @@ int main()
 	};
 	while (DidYouWin == false)
 	{
-
 		Rooms[User.m_heroY][User.m_heroX].PrintInfo();
 		char Response[255];
 		std::cin.getline(Response, 255);
 		system("cls");
 		MyString PResponse = MyString(Response);
+		if (PResponse.getLength() == 0)
+		{
+			break;
+		}
 		PResponse.ToLower();
 		if (User.Response(PResponse, Rooms) == 0)
 		{
 			break;
 		}
 	}
-	
+
 	system("pause");
 	return 0;
 }

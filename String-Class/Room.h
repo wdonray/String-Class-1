@@ -3,7 +3,7 @@ class Room
 {
 public:
 	Room() {};
-	Room(bool, bool, bool, bool, bool, bool, bool, bool, bool, const char*);
+	Room(bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, const char*);
 	void PrintInfo();
 	bool m_EDoor;
 	bool m_WDoor;
@@ -11,6 +11,7 @@ public:
 	bool m_SDoor;
 	bool m_Enemyin;
 	bool m_Jokein;
+	bool m_Jokein2;
 	bool m_Weaponin;
 	bool m_Death;
 	bool m_Boss;
