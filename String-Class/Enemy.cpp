@@ -46,27 +46,6 @@ void Enemy::attack(Enemy & defender)
 
 int Hero::Response(MyString A, Room Rooms[][5])
 {
-	if (Rooms[m_heroY][m_heroX].m_Weaponin == true)
-	{
-		std::cout << m_name << ", There seems to be two weapons of some sort in this room \nA Mace and a Stick ? \nIf you would like one, type Take and then your weapon of choice, if not ignore. (EXAMPLE: Take Mace)" << "\n \n";
-	}
-
-	if (Rooms[m_heroY][m_heroX].m_Enemyin == true)
-	{
-		std::cout << "OMG, a Cockatrice is snarling and staring at you!\n \n*The doors lock behind you..You must fight* \n \n Type attack... \n \n";
-		Rooms[m_heroY][m_heroX].m_NDoor = false;
-		Rooms[m_heroY][m_heroX].m_EDoor = false;
-		Rooms[m_heroY][m_heroX].m_SDoor = false;
-		Rooms[m_heroY][m_heroX].m_WDoor = false;
-	}
-	if (Rooms[m_heroY][m_heroX].m_Jokein == true)
-	{
-		std::cout << "Oh my " << m_name << " you have entered a death room with programming jokes to continue your journey you must answer correctly. \n \nQ: 0 is false and 1 is true, right?" << std::endl;
-		Rooms[m_heroY][m_heroX].m_NDoor = false;
-		Rooms[m_heroY][m_heroX].m_EDoor = false;
-		Rooms[m_heroY][m_heroX].m_SDoor = false;
-		Rooms[m_heroY][m_heroX].m_WDoor = false;
-	}
 	if (A.subString("north") == true && Rooms[m_heroY][m_heroX].m_NDoor == true)
 	{
 		m_North();
@@ -90,6 +69,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			std::cout << "Of course... You picked the mace, what a surprise..." << std::endl;
 			Sleep(2500);
 			system("cls");
+			std::cout << "Four doors are here go anywhere you please. \n~Which path shall you take?" << std::endl;
 			m_weaponM = true;
 			Rooms[m_heroY][m_heroX].m_Weaponin = false;
 		}
@@ -98,6 +78,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			std::cout << "GREAT CHOICE! YOU GOT DE FREAKIN STICK FROM DE GODS!!" << std::endl;
 			Sleep(2500);
 			system("cls");
+			std::cout << "Four doors are here go anywhere you please. \n~Which path shall you take?" << std::endl;
 			m_weaponS = true;
 			Rooms[m_heroY][m_heroX].m_Weaponin = false;
 		}
@@ -156,6 +137,25 @@ int Hero::Response(MyString A, Room Rooms[][5])
 		Sleep(2500);
 		return 0;
 	}
-
+	if (Rooms[m_heroY][m_heroX].m_Weaponin == true)
+	{
+		std::cout << m_name << ", There seems to be two weapons of some sort in this room \nA Mace and a Stick ? \nIf you would like one, type Take and then your weapon of choice, if not ignore. (EXAMPLE: Take Mace)" << "\n \n";
+	}
+	if (Rooms[m_heroY][m_heroX].m_Enemyin == true)
+	{
+		std::cout << "OMG, a Cockatrice is snarling and staring at you!\n \n*The doors lock behind you..You must fight* \n \n Type attack... \n \n";
+		Rooms[m_heroY][m_heroX].m_NDoor = false;
+		Rooms[m_heroY][m_heroX].m_EDoor = false;
+		Rooms[m_heroY][m_heroX].m_SDoor = false;
+		Rooms[m_heroY][m_heroX].m_WDoor = false;
+	}
+	if (Rooms[m_heroY][m_heroX].m_Jokein == true)
+	{
+		std::cout << "Oh my " << m_name << ", you have entered a death room with programming jokes to continue your journey you must answer correctly. \n \nQ: 0 is false and 1 is true, right?" << std::endl;
+		Rooms[m_heroY][m_heroX].m_NDoor = false;
+		Rooms[m_heroY][m_heroX].m_EDoor = false;
+		Rooms[m_heroY][m_heroX].m_SDoor = false;
+		Rooms[m_heroY][m_heroX].m_WDoor = false;
+	}
 	return -1;
 }
