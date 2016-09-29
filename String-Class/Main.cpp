@@ -38,31 +38,31 @@ int main()
 	std::cout << "You were thrown into this death trap for no reason. You must find the exit in \norder to live... Enjoy." << "\n \n";
 	Sleep(4500);
 	system("cls");
-	Room Room01 = Room{ 1,0,0,1,0,0,0,0,  "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
-	Room Room02 = Room{ 1,1,0,1,0,0,0,0, "The room is empty... For now. \n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
-	Room Room03 = Room{ 1,1,0,1,0,0,0,0, "Three doors are in this room East, South, and West. \n~Which path will you take?" };
-	Room Room04 = Room{ 1,1,0,1,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
-	Room Room05 = Room{ 1,0,0,1,0,0,0,1, ""};
-	Room Room06 = Room{ 1,0,1,1,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
-	Room Room07 = Room{ 1,1,1,1,0,0,1,0, "" };
-	Room Room08 = Room{ 1,1,1,1,1,0,0,0, "" };
-	Room Room09 = Room{ 1,1,1,1,0,1,0,0, "" };
-	Room Room10 = Room{ 0,1,1,1,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room North, West, and South. \n~Which path will you take?" };
-	Room Room11 = Room{ 1,0,1,1,0,0,0,0,"Three doors are in this room North, East, South. \n~Which path will you take?" };
-	Room Room12 = Room{ 1,1,1,1,0,0,0,0, "Four doors are here go any.where you please. \n~Which path shall you take?" };
-	Room Room13 = Room{ 1,1,1,1,0,1,0,1, "" };
-	Room Room14 = Room{ 1,1,1,1,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
-	Room Room15 = Room{ 0,1,1,1,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
-	Room Room16 = Room{ 1,0,1,1,0,1,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room North, East, South. \n~Which path will you take?" };
-	Room Room17 = Room{ 1,1,1,1,1,0,0,0, "" };
-	Room Room18 = Room{ 1,1,1,1,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
-	Room Room19 = Room{ 1,1,1,1,1,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
-	Room Room20 = Room{ 0,1,1,1,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
-	Room Room21 = Room{ 1,0,0,1,0,0,0,1, ""};
-	Room Room22 = Room{ 1,1,1,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
-	Room Room23 = Room{ 1,1,1,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
-	Room Room24 = Room{ 1,1,1,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
-	Room Room25 = Room{ 1,0,0,1,1,0,0,0, "You encounter the great big huge giant boss called great big huge giant boss!" };
+	Room Room01 = Room{ 1,0,0,1,0,0,0,0,0,  "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
+	Room Room02 = Room{ 1,1,0,1,0,0,0,0,0, "The room is empty... For now. \n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
+	Room Room03 = Room{ 1,1,0,1,0,0,0,0,0, "Three doors are in this room East, South, and West. \n~Which path will you take?" };
+	Room Room04 = Room{ 1,1,0,1,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
+	Room Room05 = Room{ 1,0,0,1,0,0,0,1,0, ""};
+	Room Room06 = Room{ 1,0,1,1,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
+	Room Room07 = Room{ 1,1,1,1,0,0,1,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room08 = Room{ 1,1,1,1,1,0,0,0,0, "" };
+	Room Room09 = Room{ 1,1,1,1,0,1,0,0,0, "" };
+	Room Room10 = Room{ 0,1,1,1,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room North, West, and South. \n~Which path will you take?" };
+	Room Room11 = Room{ 1,0,1,1,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take?" };
+	Room Room12 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
+	Room Room13 = Room{ 1,1,1,1,0,0,0,1,0, "Want to hear a joke? \n" };
+	Room Room14 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
+	Room Room15 = Room{ 0,1,1,1,0,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
+	Room Room16 = Room{ 1,0,1,1,0,1,0,0,0, "			 -- WARNING -- WARNING -- 			" };
+	Room Room17 = Room{ 1,1,1,1,1,0,0,0,0, "" };
+	Room Room18 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. *Giggles* \n~Which path shall you take?" };
+	Room Room19 = Room{ 1,1,1,1,0,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room20 = Room{ 0,1,1,1,0,0,0,0,0, "Three doors are in this room North, West, and South. \n~Which path will you take?" };
+	Room Room21 = Room{ 1,0,0,1,0,0,0,1,0, ""};
+	Room Room22 = Room{ 1,1,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
+	Room Room23 = Room{ 1,1,1,0,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
+	Room Room24 = Room{ 1,1,1,0,0,0,0,0,0, "Three doors are in this room, you may go West, North, and East. \n~Which path will you take?" };
+	Room Room25 = Room{ 0,0,0,0,0,0,0,0,1, "" };
 	Room Rooms[5][5] =
 	{
 		{ Room01,Room02,Room03,Room04,Room05 },
@@ -85,16 +85,7 @@ int main()
 			break;
 		}
 	}
-	/*Enemy first = Enemy(500, 50);
-	Enemy second = Enemy(450, 60);
-	std::cout << first.m_hp << "\n";
-	std::cout << second.m_hp << "\n";
-	for (int i = 0; i < 5; i++)
-	{
-		first.attack(second);
-		std::cout << first.m_hp << "\n";
-		std::cout << second.m_hp << "\n";
-	}*/
+	
 	system("pause");
 	return 0;
 }
