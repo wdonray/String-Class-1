@@ -100,6 +100,21 @@ int Hero::Response(MyString A, Room Rooms[][5])
 		}
 		else if (m_weaponS == true)
 		{
+			Enemy SmallEnemy = Enemy(100, 10);
+			Enemy User = Enemy(250, 100);
+
+			std::cout << "Cockatrice HP -> [" << SmallEnemy.m_hp << "]\n \n";
+			std::cout << "User HP -> [" << User.m_hp << "]\n \n";
+
+			while (SmallEnemy.m_hp > 0)
+			{
+				SmallEnemy.attack(User);
+				User.attack(SmallEnemy);
+				std::cout << "Enemy Remaining HP ->" << SmallEnemy.m_hp << "\n \n";
+				std::cout << "----------------------";
+				Sleep(550);
+				std::cout << "User Remaining HP ->" << User.m_hp << "\n \n";
+			}
 			std::cout << "K.O!! REKT!!! OMG THE STICK DESTROYS ANYTHING IT TOUCHES!!" << std::endl;
 			Sleep(2900);
 			system("cls");
@@ -222,10 +237,6 @@ int Hero::Response(MyString A, Room Rooms[][5])
 				std::cout << "You fought a long battle.. however a Mace can't kill this thing... YOU DEAD. \n \nTip Stick > Mace" << std::endl;
 				Sleep(2900);
 				return 0;
-			}
-			else if (A.subString("north") || A.subString("east") || A.subString("south") || A.subString("west"))
-			{
-				std::cout << "*The doors are locked...* \n \n";
 			}
 		}
 		else if (m_weaponS == true)
