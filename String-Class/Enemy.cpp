@@ -77,7 +77,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 		}
 		else if (A.subString("stick") && Rooms[m_heroY][m_heroX].m_Weaponin == true)
 		{
-			std::cout << "GREAT CHOICE! YOU GOT DE FREAKIN STICK FROM DE GODS!!" << std::endl;
+			std::cout << "GREAT CHOICE! YOU GOT DE FREAKIN STICK FROM DE GODS!! \n";
 			Sleep(2900);
 			m_weaponS = true;
 			Rooms[m_heroY][m_heroX].m_Weaponin = false;
@@ -124,6 +124,10 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			Rooms[m_heroY][m_heroX].m_WDoor = true;
 			Rooms[m_heroY][m_heroX].m_Jokein = false;
 		}
+		else if (A.subString("north") || A.subString("east") || A.subString("south") || A.subString("west"))
+		{
+			std::cout << "*The doors are locked...* \n \n";
+		}
 		else
 		{
 			char m_text[255] = ("Incorrect \n");
@@ -150,6 +154,10 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			Rooms[m_heroY][m_heroX].m_WDoor = true;
 			Rooms[m_heroY][m_heroX].m_Jokein2 = false;
 		}
+		else if (A.subString("north") || A.subString("east") || A.subString("south") || A.subString("west"))
+		{
+			std::cout << "*The doors are locked...* \n \n";
+		}
 		else
 		{
 			char m_text[255] = ("Incorrect \n");
@@ -174,7 +182,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 	}
 	if (Rooms[m_heroY][m_heroX].m_Enemyin == true)
 	{
-		std::cout << "OMG, a Cockatrice is snarling and staring at you!\n \n*The doors lock behind you..You must fight* \n \nType attack... \n \n";
+		std::cout << "OMG, a Cockatrice is snarling and staring at you!\n \n*The doors lock behind you..You must fight* \n \nType attack... \n";
 		Rooms[m_heroY][m_heroX].m_NDoor = false;
 		Rooms[m_heroY][m_heroX].m_EDoor = false;
 		Rooms[m_heroY][m_heroX].m_SDoor = false;
@@ -182,7 +190,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 	}
 	if (Rooms[m_heroY][m_heroX].m_Jokein == true)
 	{
-		std::cout << "Oh my " << m_name << ", you have entered a death room with programming jokes to continue  your journey you must answer correctly. \n \n Q: 0 is false and 1 is true, right?" << std::endl;
+		std::cout << "Oh my " << m_name << ", you have entered a death room with programming jokes to continue  your journey you must answer correctly. \n \n----------------------------------- \nQ: 0 is false and 1 is true, right? \n----------------------------------- \n \n" ;
 		Rooms[m_heroY][m_heroX].m_NDoor = false;
 		Rooms[m_heroY][m_heroX].m_EDoor = false;
 		Rooms[m_heroY][m_heroX].m_SDoor = false;
@@ -190,7 +198,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 	}
 	if (Rooms[m_heroY][m_heroX].m_Jokein2 == true)
 	{
-		std::cout << "Oh my " << m_name << ", you have entered a death room with programming jokes to continue  your journey you must answer correctly. \n \n Q: How many programmers does it take to change a light bulb?" << std::endl;
+		std::cout << "Oh my " << m_name << ", you have entered a death room with programming jokes to continue  your journey you must answer correctly. \n \n----------------------------------- \nQ: How many programmers does it take to change a light bulb? \n \n----------------------------------- \n" << std::endl;
 		Rooms[m_heroY][m_heroX].m_NDoor = false;
 		Rooms[m_heroY][m_heroX].m_EDoor = false;
 		Rooms[m_heroY][m_heroX].m_SDoor = false;
@@ -207,11 +215,18 @@ int Hero::Response(MyString A, Room Rooms[][5])
 
 		else if (m_weaponM == true)
 		{
-			std::cout << "... \n";
+			std::cout << " /You encounter the great big huge giant boss called great big huge giant boss\\ \n*The doors lock behind you..You must fight but wait your God stick, it turned into a long sword... Must be a trap of some sort, walking through that boss door must trigger it. You must fight on your own.* \n \nType attack to start this epic fight good luck " << m_name << "... \n \n";
 			Sleep(2900);
-			std::cout << "You fought a long battle.. however a Mace can't kill this thing... YOU DEAD. \n \n Tip Stick > Mace" << std::endl;
-			Sleep(2900);
-			return 0;
+			if (A.subString("attack"))
+			{
+				std::cout << "You fought a long battle.. however a Mace can't kill this thing... YOU DEAD. \n \nTip Stick > Mace" << std::endl;
+				Sleep(2900);
+				return 0;
+			}
+			else if (A.subString("north") || A.subString("east") || A.subString("south") || A.subString("west"))
+			{
+				std::cout << "*The doors are locked...* \n \n";
+			}
 		}
 		else if (m_weaponS == true)
 		{
@@ -234,7 +249,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 					User.attack(Boss);
 					std::cout << "Boss Remaining HP ->" << Boss.m_hp << "\n";
 					std::cout << "----------------------";
-					Sleep(250);
+					Sleep(550);
 					std::cout << "User Remaining HP ->" << User.m_hp << "\n \n";
 				}
 				{

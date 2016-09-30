@@ -9,7 +9,7 @@ int main()
 {
 	srand(time(NULL));
 	bool DidYouWin = false;
-	std::cout << "			!Welcome to Death and Despair! \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth...\nWARNING: If you are impatient and just spam Enter, game will close! \n \n		*Press 'E' to enter the game or 'Q' to quit*" << std::endl;
+	std::cout << "			---------------------------			\n			!Welcome to Bright Souls 3! \n			--------------------------- \n \nThe map is hidden if you would like a map create it yourself (By Playing a lot) \n~RULES: To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth...\nWARNING: If you are impatient and just spam Enter, game will close! \n \n		*Press 'E' to enter the game or 'Q' to quit*" << std::endl;
 	char go;
 	std::cin >> go;
 	std::cin.ignore();
@@ -22,7 +22,7 @@ int main()
 	if (go == 'E')
 	{
 		system("cls");
-		std::cout << "You fool... *Sighhh* Now what is your name? \n";
+		std::cout << "You fool... *Sighhh* Now what is your name? \n-->";
 	}
 	else if (go == 'Q')
 	{
@@ -43,7 +43,7 @@ int main()
 	Room Room04 = Room{ 1,1,0,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
 	Room Room05 = Room{ 1,0,0,1,0,0,0,0,1,0, "" };
 	Room Room06 = Room{ 1,0,1,1,0,0,0,0,0,0, "Three doors are in this room North, East, South. \n~Which path will you take nerd?" };
-	Room Room07 = Room{ 1,1,1,1,0,0,0,1,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
+	Room Room07 = Room{ 1,1,1,1,0,0,0,1,0,0, "\nFour doors are here go anywhere you please. \n~Which path shall you take? \n" };
 	Room Room08 = Room{ 1,1,1,1,1,0,0,0,0,0, "" };
 	Room Room09 = Room{ 1,1,1,1,0,1,0,0,0,0, "Four doors are here go anywhere you please. \n~Which path shall you take?" };
 	Room Room10 = Room{ 0,1,1,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room North, West, and South. \n~Which path will you take?" };
@@ -74,6 +74,7 @@ int main()
 	{
 		Rooms[User.m_heroY][User.m_heroX].PrintInfo();
 		char Response[255];
+		std::cout << "\n->";
 		std::cin.getline(Response, 255);
 		system("cls");
 		MyString PResponse = MyString(Response);
