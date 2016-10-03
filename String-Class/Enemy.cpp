@@ -66,6 +66,15 @@ int Hero::Response(MyString A, Room Rooms[][5])
 	{
 		m_West();
 	}
+	else if (A.subString("help") == true)
+	{
+		std::cout << "---------------------------------HELP IS HERE ------------------------------------";
+		std::cout << "To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth.. \n \n";
+		std::cout << "If the room says the doors have locked behind you, they are locked typing \ndirectons will not move you. So do as the game master says. \n \n";
+		std::cout << "There is no map. \n \n";
+		std::cout << "Yes, this game is hard however it does not require any skill so you are in luck,  loser. \n \n";
+		std::cout << "---------------------------------HELP IS HERE ------------------------------------ \n \n";
+	}
 	else if (A.subString("take") == true)
 	{
 		if (A.subString("mace") && Rooms[m_heroY][m_heroX].m_Weaponin == true)
@@ -91,7 +100,10 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			Sleep(2500);
 			return 0;
 		}
-
+		/*else if (A.subString("north") || A.subString("east") || A.subString("south") || A.subString("west") && m_weaponM == true || m_weaponS == true)
+		{
+			std::cout << "*The doors are locked...* \n \n";
+		}*/
 		else if (m_weaponM == true)
 		{
 			std::cout << "You fought a long battle.. however a Mace can't kill this thing... YOU DEAD." << std::endl;
@@ -118,7 +130,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			std::cout << "K.O!! REKT!!! OMG THE STICK DESTROYS ANYTHING IT TOUCHES!!" << std::endl;
 			Sleep(2900);
 			system("cls");
-			std::cout << "Four doors are here go anywhere you please. \n~Which path shall you take?" << std::endl;
+			//std::cout << "Four doors are here go anywhere you please. \n~Which path shall you take?" << std::endl;
 			Rooms[m_heroY][m_heroX].m_NDoor = true;
 			Rooms[m_heroY][m_heroX].m_EDoor = true;
 			Rooms[m_heroY][m_heroX].m_SDoor = true;
