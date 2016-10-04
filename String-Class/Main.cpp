@@ -82,6 +82,7 @@ int main()
 	};
 	while (DidYouWin == false)
 	{
+		std::cout << std::endl;
 		Rooms[User.m_heroY][User.m_heroX].PrintInfo();
 		char Response[255];
 		std::cout << "\n->";
