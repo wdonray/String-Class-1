@@ -71,7 +71,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 		std::cout << "---------------------------------HELP IS HERE ------------------------------------";
 		std::cout << "To Move in any direction just type it \n(EXAMPLE: To move north, type 'north') and so forth.. \n \n";
 		std::cout << "If the room says the doors have locked behind you, they are locked typing \ndirectons will not move you. So do as the game master says. \n \n";
-		std::cout << "There is no map. \n \n";
+		std::cout << "There is no map, create one yourself. \n \n";
 		std::cout << "Yes, this game is hard however it does not require any skill so you are in luck,  loser. \n \n";
 		std::cout << "---------------------------------HELP IS HERE ------------------------------------ \n \n";
 	}
@@ -86,7 +86,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 		}
 		else if (A.subString("stick") && Rooms[m_heroY][m_heroX].m_Weaponin == true)
 		{
-			std::cout << "GREAT CHOICE! YOU GOT DE FREAKIN STICK FROM DE GODS!! \n";
+			std::cout << "GREAT CHOICE! YOU GOT DE FREAKIN STICK FROM DE GODS!!";
 			Sleep(2900);
 			m_weaponS = true;
 			Rooms[m_heroY][m_heroX].m_Weaponin = false;
@@ -122,7 +122,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 			{
 				SmallEnemy.attack(User);
 				User.attack(SmallEnemy);
-				std::cout << "Enemy Remaining HP ->" << SmallEnemy.m_hp << "\n \n";
+				std::cout << "Cockatrice Remaining HP ->" << SmallEnemy.m_hp << "\n \n";
 				std::cout << "----------------------";
 				Sleep(550);
 				std::cout << "User Remaining HP ->" << User.m_hp << "\n \n";
@@ -205,7 +205,7 @@ int Hero::Response(MyString A, Room Rooms[][5])
 	}
 	if (Rooms[m_heroY][m_heroX].m_Weaponin == true)
 	{
-		std::cout << m_name << ", There seems to be two weapons of some sort in this room \nA Mace and a Stick ? \nIf you would like one, type Take and then your weapon of choice, if not ignore. (EXAMPLE: Take Mace)" << "\n \n";
+		std::cout << m_name << ", There seems to be two weapons of some sort in this room \nA Mace and a Stick ? \nIf you would like one, type Take and then your weapon of choice, if not ignore. \n(EXAMPLE: Take Mace)";
 	}
 	if (Rooms[m_heroY][m_heroX].m_Enemyin == true)
 	{

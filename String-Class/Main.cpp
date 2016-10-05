@@ -47,7 +47,7 @@ int main()
 	}
 	system("cls");
 	//Creating each individual rooms using bools to decide what they have and do not have
-	Room Room01 = Room{ 1,0,0,1,0,0,0,0,0,0,  "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
+	Room Room01 = Room{ 1,0,0,1,0,0,0,0,0,0, "Only two doors are in this room, you may go East and South. \n~Which path will you take?" };
 	Room Room02 = Room{ 1,1,0,1,0,0,0,0,0,0, "The room is empty... For now. \n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
 	Room Room03 = Room{ 1,1,0,1,0,0,0,0,0,0, "Three doors are in this room East, South, and West. \n~Which path will you take?" };
 	Room Room04 = Room{ 1,1,0,1,0,0,0,0,0,0, "			 -- WARNING -- WARNING -- 			\n \nThree doors are in this room East, South, and West. \n~Which path will you take?" };
