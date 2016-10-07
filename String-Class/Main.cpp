@@ -39,9 +39,9 @@ int main()
 	int CountDown = 5;
 	std::cout << "Countdown until game starts: ";
 	//A simple countdown
-	while (CountDown > 0) 
+	while (CountDown >= 0) 
 	{
-		Sleep(1100);
+		Sleep(1000);
 		std::cout << CountDown << " ";
 		CountDown--;
 	}
